@@ -1,31 +1,28 @@
 ### Synopsis
 
-DemoComponent of react application generator.
+VerticalList is 
+*Write here a short introduction and/or overview that explains **what** component is.*
 
 ### Code Example
 
 ```
-<DemoComponent 
-  label="DemoComponent"
-  onClick={() => { console.log('Welcome to showroom') }}
-/>
+<VerticalList />
 ```
 
 ### Props Reference
 
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
-| label | string | Label of button |
-| onClick | func | Callback fired on button click |
+| demoProp | string | Write a description of the property |
 
 ### Contributors
-Kirill Volkovich
+*Write here contributor names/contacts*
 
 [GIT REPOSITORY](http://buildserver.jcatalog.com/gitweb/?p=js-react-application-generator.git)
 
 ### Component Name
 
-DemoComponent
+VerticalList
 
 ### License
 

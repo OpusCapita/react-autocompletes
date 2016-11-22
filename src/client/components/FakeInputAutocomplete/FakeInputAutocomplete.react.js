@@ -1,13 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import s from './FakeInputAutocomplete.module.less';
 import fuzzysearch from 'fuzzysearch';
+import VerticalList from '../VerticalList';
+import { Motion, spring } from 'react-motion';
 
 export default
 class FakeInputAutocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.defaultValue
+      value: props.defaultValue,
+      isFoused: false
     };
   }
 
@@ -20,10 +23,44 @@ class FakeInputAutocomplete extends Component {
     return variants.filter(variant => filterFunction(variant.value, searchQuery));
   }
 
+  handleInputFocus() {
+    this.setState({ isFocused: true });
+  }
+
+  handleInputBlur() {
+    this.setState({ isFocused: false });
+  }
+
   render() {
-    let { filterFunction, placeholder, variants, ...restProps } = this.props;
-    let { value } = this.state;
+    let {
+      filterFunction,
+      placeholder,
+      variants,
+      maxSuggessionsHeight,
+      isShowSuggessionsAbove,
+      ...restProps
+    } = this.props;
+    let { value, isFocused } = this.state;
     let filteredVariants = this.filterVariants(variants, filterFunction, value);
+
+    let showSuggessions = value && filteredVariants.length;
+    let suggessions = (
+      <Motion
+        defaultStyle={{ x: 0 }}
+        style={{ x: showSuggessions ? spring(100) : spring(0) }}
+      >{interpolatedStyle =>
+        <div
+          className={s.suggessions}
+          style={{
+            maxHeight: maxSuggessionsHeight,
+            transform: `translate(0, ${isShowSuggessionsAbove ? -interpolatedStyle.x : interpolatedStyle.x }%)`
+          }}
+        >
+          <VerticalList items={filteredVariants} />
+        </div>}
+      </Motion>
+    );
+
     return (
       <div className={s.fakeInputAutocomplete}>
         <input
@@ -31,8 +68,11 @@ class FakeInputAutocomplete extends Component {
           className={s.input}
           placeholder={placeholder}
           onChange={this.handleInputChange.bind(this)}
+          onFocus={this.handleInputFocus.bind(this)}
+          onBlur={this.handleInputBlur.bind(this)}
           { ...restProps }
         />
+        {suggessions}
       </div>
     );
   }
@@ -46,12 +86,14 @@ FakeInputAutocomplete.propTypes = {
     key: PropTypes.string,
     value: PropTypes.string
   })),
-  isShowPopupAbove: PropTypes.bool
+  isShowSuggessionsAbove: PropTypes.bool,
+  maxSuggessionsHeight: PropTypes.string
 };
 FakeInputAutocomplete.defaultProps = {
   defaultValue: '',
   filterFunction: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
   placeholder: '',
   variants: [],
-  isShowPopupAbove: PropTypes.bool
+  isShowSuggessionsAbove: false,
+  maxSuggessionsHeight: '320px'
 };

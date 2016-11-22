@@ -1,6 +1,7 @@
 .fakeInputAutocomplete {
   display: flex;
   flex: 1;
+  position: relative;
 }
 
 .input {
@@ -17,4 +18,14 @@
 
 .input:focus {
   outline: none;
+}
+
+.suggessions {
+  position: absolute;
+  overflow: auto;
+  top: auto;
+  bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
