@@ -20,12 +20,24 @@
   outline: none;
 }
 
-.suggessions {
-  position: absolute;
-  overflow: auto;
-  top: auto;
-  bottom: 0;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+.suggessionsContainer {
+  background-color: #fff;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  left: 0;
+  min-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.suggessions {
+  background-color: #fff;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }

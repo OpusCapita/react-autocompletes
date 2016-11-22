@@ -43,20 +43,25 @@ class FakeInputAutocomplete extends Component {
     let { value, isFocused } = this.state;
     let filteredVariants = this.filterVariants(variants, filterFunction, value);
 
-    let showSuggessions = value && filteredVariants.length;
+    let showSuggessions = isFocused && filteredVariants.length;
     let suggessions = (
       <Motion
-        defaultStyle={{ x: 0 }}
-        style={{ x: showSuggessions ? spring(100) : spring(0) }}
+        defaultStyle={{ x: 0, y: 0 }}
+        style={{
+          x: showSuggessions ? spring(maxSuggessionsHeight) : spring(0),
+          y: showSuggessions ? spring(1) : spring(0)
+        }}
       >{interpolatedStyle =>
         <div
-          className={s.suggessions}
+          className={s.suggessionsContainer}
           style={{
-            maxHeight: maxSuggessionsHeight,
-            transform: `translate(0, ${isShowSuggessionsAbove ? -interpolatedStyle.x : interpolatedStyle.x }%)`
+            maxHeight: `${console.log(interpolatedStyle.x) || interpolatedStyle.x}px`,
+            opacity: interpolatedStyle.y
           }}
         >
-          <VerticalList items={filteredVariants} />
+          <div className={s.suggessions} >
+            <VerticalList items={filteredVariants} />
+          </div>
         </div>}
       </Motion>
     );
@@ -87,7 +92,7 @@ FakeInputAutocomplete.propTypes = {
     value: PropTypes.string
   })),
   isShowSuggessionsAbove: PropTypes.bool,
-  maxSuggessionsHeight: PropTypes.string
+  maxSuggessionsHeight: PropTypes.number
 };
 FakeInputAutocomplete.defaultProps = {
   defaultValue: '',
@@ -95,5 +100,5 @@ FakeInputAutocomplete.defaultProps = {
   placeholder: '',
   variants: [],
   isShowSuggessionsAbove: false,
-  maxSuggessionsHeight: '320px'
+  maxSuggessionsHeight: 320
 };
