@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import s from './FakeInputAutocomplete.module.less';
 import fuzzysearch from 'fuzzysearch';
 import VerticalList from '../VerticalList';
@@ -20,12 +21,6 @@ class FakeInputAutocomplete extends Component {
     }
   }
 
-  componentWillUnmount() {
-    if(this._blurTimeout) {
-      clearTimeout(this._blurTimeout);
-    }
-  }
-
   focus() {
     this._input.focus();
   }
@@ -40,18 +35,21 @@ class FakeInputAutocomplete extends Component {
   handleItemClick(event, key) {
     let { onSelect } = this.props;
     onSelect(event, key);
+
+    this._input.blur();
   }
 
   filterItems(items, filter, searchQuery) {
     return items.filter(item => filter(item.value, searchQuery));
   }
 
-  handleInputFocus() {
+  handleFocus() {
+    this._input.focus();
     this.setState({ isFocused: true });
   }
 
-  handleInputBlur() {
-    this._blurTimeout = setTimeout(() => this.setState({ isFocused: false }), 80);
+  handleBlur() {
+    this.setState({ isFocused: false });
   }
 
   render() {
@@ -97,15 +95,19 @@ class FakeInputAutocomplete extends Component {
     );
 
     return (
-      <div className={s.fakeInputAutocomplete}>
+      <div
+        ref={ref => (this._autocomplete = ref)}
+        tabIndex={-1}
+        className={s.fakeInputAutocomplete}
+        onFocus={this.handleFocus.bind(this)}
+        onBlur={this.handleBlur.bind(this)}
+      >
         <input
-          ref={ref = (this._input = ref)}
+          ref={ref => (this._input = ref)}
           value={value}
           className={s.input}
           placeholder={placeholder}
           onChange={this.handleInputChange.bind(this)}
-          onFocus={this.handleInputFocus.bind(this)}
-          onBlur={this.handleInputBlur.bind(this)}
           { ...restProps }
         />
         {suggessions}

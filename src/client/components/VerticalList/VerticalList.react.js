@@ -9,9 +9,9 @@ class VerticalList extends Component {
   }
 
   render() {
-    let { items, onClick } = this.props;
+    let { items, onClick, ...restProps } = this.props;
     return (
-      <div className={s.verticalList}>
+      <div className={s.verticalList} { ...restProps }>
         {items.map(item => (
           <div
             className={s.item}
