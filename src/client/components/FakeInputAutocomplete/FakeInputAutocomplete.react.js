@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import s from './FakeInputAutocomplete.module.less';
 import fuzzysearch from 'fuzzysearch';
 import VerticalList from '../VerticalList';
-import { Motion, spring } from 'react-motion';
+import { Motion, spring, presets } from 'react-motion';
 
 export default
 class FakeInputAutocomplete extends Component {
@@ -14,13 +14,24 @@ class FakeInputAutocomplete extends Component {
     };
   }
 
+  componentWillUnmount() {
+    if(this._blurTimeout) {
+      clearTimeout(this._blurTimeout);
+    }
+  }
+
   handleInputChange(event) {
     let value = event.target.value;
     this.setState({ value });
   }
 
-  filterVariants(variants, filterFunction, searchQuery) {
-    return variants.filter(variant => filterFunction(variant.value, searchQuery));
+  handleItemClick(event, key) {
+    let { onChange } = this.props;
+    console.log('key!!!', key);
+  }
+
+  filterItems(items, filterFunction, searchQuery) {
+    return items.filter(item => filterFunction(item.value, searchQuery));
   }
 
   handleInputFocus() {
@@ -28,39 +39,43 @@ class FakeInputAutocomplete extends Component {
   }
 
   handleInputBlur() {
-    this.setState({ isFocused: false });
+    this._blurTimeout = setTimeout(() => this.setState({ isFocused: false }), 80);
   }
 
   render() {
     let {
       filterFunction,
       placeholder,
-      variants,
+      items,
+      onChange,
       maxSuggessionsHeight,
       isShowSuggessionsAbove,
       ...restProps
     } = this.props;
     let { value, isFocused } = this.state;
-    let filteredVariants = this.filterVariants(variants, filterFunction, value);
+    let filteredItems = this.filterItems(items, filterFunction, value);
 
-    let showSuggessions = isFocused && filteredVariants.length;
+    let showSuggessions = isFocused && filteredItems.length;
+    let motionPreset = presets.stiff;
     let suggessions = (
       <Motion
         defaultStyle={{ x: 0, y: 0 }}
         style={{
-          x: showSuggessions ? spring(maxSuggessionsHeight) : spring(0),
-          y: showSuggessions ? spring(1) : spring(0)
+          x: showSuggessions ? spring(maxSuggessionsHeight, motionPreset) : spring(0, motionPreset)
         }}
       >{interpolatedStyle =>
         <div
           className={s.suggessionsContainer}
           style={{
-            maxHeight: `${console.log(interpolatedStyle.x) || interpolatedStyle.x}px`,
-            opacity: interpolatedStyle.y
+            maxHeight: `${interpolatedStyle.x}px`,
+            opacity: interpolatedStyle.x
           }}
         >
           <div className={s.suggessions} >
-            <VerticalList items={filteredVariants} />
+            <VerticalList
+              items={filteredItems}
+              onClick={(event, key) => this.handleItemClick(event, key)}
+            />
           </div>
         </div>}
       </Motion>
@@ -87,10 +102,11 @@ FakeInputAutocomplete.propTypes = {
   defaultValue: PropTypes.string,
   filterFunction: PropTypes.func,
   placeholder: PropTypes.string,
-  variants: PropTypes.arrayOf(PropTypes.shape({
+  items: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
     value: PropTypes.string
   })),
+  onChange: PropTypes.func,
   isShowSuggessionsAbove: PropTypes.bool,
   maxSuggessionsHeight: PropTypes.number
 };
@@ -98,7 +114,8 @@ FakeInputAutocomplete.defaultProps = {
   defaultValue: '',
   filterFunction: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
   placeholder: '',
-  variants: [],
+  items: [],
+  onChange: () => {},
   isShowSuggessionsAbove: false,
   maxSuggessionsHeight: 320
 };

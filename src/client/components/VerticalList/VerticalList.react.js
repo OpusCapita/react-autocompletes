@@ -3,9 +3,9 @@ import s from './VerticalList.module.less';
 
 export default
 class VerticalList extends Component {
-  handleItemClick(key) {
+  handleItemClick(event, key) {
     let { onClick } = this.props;
-    onClick(key);
+    onClick(event, key);
   }
 
   render() {
@@ -16,8 +16,7 @@ class VerticalList extends Component {
           <div
             className={s.item}
             key={item.key}
-            onClick={onClick}
-            tabIndex={0}
+            onClick={event => this.handleItemClick.call(this, event, item.key)}
           >
             {item.value}
           </div>

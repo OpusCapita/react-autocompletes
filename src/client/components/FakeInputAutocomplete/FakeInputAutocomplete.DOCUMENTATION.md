@@ -7,7 +7,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 ```
 <FakeInputAutocomplete 
   placeholder="Start typing"
-  variants={[
+  items={[
     { key: 'PIM installation', value: 'PIM installation' },
     { key: 'PROV installation', value: 'PROV installation' },
     { key: 'DAM installation', value: 'DAM installation' },
