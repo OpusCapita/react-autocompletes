@@ -7,7 +7,7 @@ VerticalList is a simple lists representaion component.
 | Name                          | Type                  | Description                                                |
 | ------------------------------|:----------------------| -----------------------------------------------------------|
 | items | arrayOf(shape({ key: string, value: string }) | Array of items |
-| onClick | func | Callback fired on item click `(itemKey) => {}`|
+| onClick | func | Callback fired on item click `(event, itemKey) => {}`|
 
 ### Code Example
 

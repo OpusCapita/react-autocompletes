@@ -5,7 +5,7 @@ export default
 class VerticalList extends Component {
   handleItemClick(event, key) {
     let { onClick } = this.props;
-    onClick(key);
+    onClick(event, key);
   }
 
   render() {

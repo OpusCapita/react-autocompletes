@@ -30,7 +30,7 @@ class FakeInputAutocomplete extends Component {
     let value = event.target.value;
     let { onChange } = this.props;
     this.setState({ value });
-    onChange(value);
+    onChange(event, value);
   }
 
   handleItemClick(event, key) {

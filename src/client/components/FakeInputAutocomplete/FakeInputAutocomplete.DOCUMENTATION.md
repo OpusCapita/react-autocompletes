@@ -10,9 +10,9 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 | filter | func | Filter function `(itemValue, searchQuery) => {}` |
 | placeholder | string | Input placeholder |
 | items | arrayOf(shape({ key: string, value: string }) | Array of items |
-| onChange | func | Callback fired on input change `(inputNewValue) => {}`|
-| onSelect | func | Callback fired on item selection `(itemKey) => {}` |
-| ~origin TODO~ | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
+| onChange | func | Callback fired on input change `(event, inputNewValue) => {}`|
+| onSelect | func | Callback fired on item selection `(event, itemKey) => {}` |
+| ~origin~ TODO | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
   maxSuggessionsHeight: PropTypes.number
 
 ### Code Example
