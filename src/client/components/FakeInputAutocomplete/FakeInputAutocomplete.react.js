@@ -14,6 +14,12 @@ class FakeInputAutocomplete extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.defaultValue !== nextProps.defaultValue) {
+      this.setState({ value: nextProps.defaultValue });
+    }
+  }
+
   componentWillUnmount() {
     if(this._blurTimeout) {
       clearTimeout(this._blurTimeout);
@@ -22,12 +28,14 @@ class FakeInputAutocomplete extends Component {
 
   handleInputChange(event) {
     let value = event.target.value;
+    let { onChange } = this.props;
     this.setState({ value });
+    onChange(event, value);
   }
 
   handleItemClick(event, key) {
-    let { onChange } = this.props;
-    onChange(event, key);
+    let { onSelect } = this.props;
+    onSelect(event, key);
   }
 
   filterItems(items, filterFunction, searchQuery) {
@@ -44,12 +52,14 @@ class FakeInputAutocomplete extends Component {
 
   render() {
     let {
+      defaultValue,
       filterFunction,
-      placeholder,
       items,
-      onChange,
       maxSuggessionsHeight,
-      isShowSuggessionsAbove,
+      onChange,
+      onSelect,
+      placeholder,
+      // isShowSuggessionsAbove, // TODO
       ...restProps
     } = this.props;
     let { value, isFocused } = this.state;
@@ -61,17 +71,18 @@ class FakeInputAutocomplete extends Component {
       <Motion
         defaultStyle={{ x: 0, y: 0 }}
         style={{
-          x: showSuggessions ? spring(maxSuggessionsHeight, motionPreset) : spring(0, motionPreset)
+          x: showSuggessions ? spring(maxSuggessionsHeight, motionPreset) : spring(0, motionPreset),
+          y: showSuggessions ? spring(1, motionPreset) : spring(0, motionPreset)
         }}
       >{interpolatedStyle =>
         <div
           className={s.suggessionsContainer}
           style={{
             maxHeight: `${interpolatedStyle.x}px`,
-            opacity: interpolatedStyle.x
+            opacity: interpolatedStyle.y
           }}
         >
-          <div className={s.suggessions} >
+          <div className={s.suggessions}>
             <VerticalList
               items={filteredItems}
               onClick={(event, key) => this.handleItemClick(event, key)}
@@ -107,7 +118,7 @@ FakeInputAutocomplete.propTypes = {
     value: PropTypes.string
   })),
   onChange: PropTypes.func,
-  isShowSuggessionsAbove: PropTypes.bool,
+  // isShowSuggessionsAbove: PropTypes.bool, // TODO
   maxSuggessionsHeight: PropTypes.number
 };
 FakeInputAutocomplete.defaultProps = {
@@ -116,6 +127,7 @@ FakeInputAutocomplete.defaultProps = {
   placeholder: '',
   items: [],
   onChange: () => {},
-  isShowSuggessionsAbove: false,
+  onSelect: () => {},
+  // isShowSuggessionsAbove: false, // TODO
   maxSuggessionsHeight: 320
 };

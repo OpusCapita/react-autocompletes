@@ -6,7 +6,8 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 
 ```
 <FakeInputAutocomplete 
-  onChange={(event, key) => console.log('Clicked on item with key: ' + key)}
+  onSelect={(event, key) => console.log('Clicked on item with key: ' + key)}
+  onChange={(event, string) => console.log('onChange', string)}
   placeholder="Start typing"
   items={[
     { key: 'PIM installation', value: 'PIM installation' },
