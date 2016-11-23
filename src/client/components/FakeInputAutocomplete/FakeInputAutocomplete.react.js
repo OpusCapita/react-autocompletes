@@ -26,6 +26,10 @@ class FakeInputAutocomplete extends Component {
     }
   }
 
+  focus() {
+    this._input.focus();
+  }
+
   handleInputChange(event) {
     let value = event.target.value;
     let { onChange } = this.props;
@@ -95,6 +99,7 @@ class FakeInputAutocomplete extends Component {
     return (
       <div className={s.fakeInputAutocomplete}>
         <input
+          ref={ref = (this._input = ref)}
           value={value}
           className={s.input}
           placeholder={placeholder}

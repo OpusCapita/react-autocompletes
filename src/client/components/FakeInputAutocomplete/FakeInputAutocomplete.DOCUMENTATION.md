@@ -14,6 +14,10 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 | onSelect | func | Callback fired on item selection `(event, itemKey) => {}` |
 | ~origin~ TODO | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
   maxSuggessionsHeight: PropTypes.number
+  
+### Methods Reference
+
+* `focus()` - focus input
 
 ### Code Example
 
