@@ -2,12 +2,25 @@
 
 FakeInputAutocomplete is a simple clearly looking autocomplete.
 
+### Props Reference
+
+| Name                          | Type                  | Description                                                |
+| ------------------------------|:----------------------| -----------------------------------------------------------|
+| defaultValue | string | Initial input value |
+| filter | func | Filter function `(itemValue, searchQuery) => {}` |
+| placeholder | string | Input placeholder |
+| items | arrayOf(shape({ key: string, value: string }) | Array of items |
+| onChange | func | Callback fired on input change `(inputNewValue) => {}`|
+| onSelect | func | Callback fired on item selection `(itemKey) => {}` |
+| ~origin TODO~ | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
+  maxSuggessionsHeight: PropTypes.number
+
 ### Code Example
 
 ```
 <FakeInputAutocomplete 
-  onSelect={(event, key) => console.log('Selected item with key: ' + key)}
-  onChange={(event, string) => console.log('onChange', string)}
+  onSelect={key => console.log('Selected item with key: ' + key)}
+  onChange={string => console.log('onChange', string)}
   placeholder="Start typing"
   items={[
     { key: 'PIM installation', value: 'PIM installation' },
@@ -32,12 +45,6 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
   ]}
 />
 ```
-
-### Props Reference
-
-| Name                          | Type                  | Description                                                |
-| ------------------------------|:----------------------| -----------------------------------------------------------|
-| demoProp | string | Write a description of the property |
 
 ### Contributors
 Kirill Volkovich

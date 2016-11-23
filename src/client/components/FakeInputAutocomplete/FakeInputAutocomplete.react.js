@@ -30,7 +30,7 @@ class FakeInputAutocomplete extends Component {
     let value = event.target.value;
     let { onChange } = this.props;
     this.setState({ value });
-    onChange(event, value);
+    onChange(value);
   }
 
   handleItemClick(event, key) {
@@ -38,8 +38,8 @@ class FakeInputAutocomplete extends Component {
     onSelect(event, key);
   }
 
-  filterItems(items, filterFunction, searchQuery) {
-    return items.filter(item => filterFunction(item.value, searchQuery));
+  filterItems(items, filter, searchQuery) {
+    return items.filter(item => filter(item.value, searchQuery));
   }
 
   handleInputFocus() {
@@ -53,17 +53,17 @@ class FakeInputAutocomplete extends Component {
   render() {
     let {
       defaultValue,
-      filterFunction,
+      filter,
       items,
       maxSuggessionsHeight,
       onChange,
       onSelect,
       placeholder,
-      // isShowSuggessionsAbove, // TODO
+      // origin, // TODO
       ...restProps
     } = this.props;
     let { value, isFocused } = this.state;
-    let filteredItems = this.filterItems(items, filterFunction, value);
+    let filteredItems = this.filterItems(items, filter, value);
 
     let showSuggessions = isFocused && filteredItems.length;
     let motionPreset = presets.stiff;
@@ -111,23 +111,24 @@ class FakeInputAutocomplete extends Component {
 
 FakeInputAutocomplete.propTypes = {
   defaultValue: PropTypes.string,
-  filterFunction: PropTypes.func,
+  filter: PropTypes.func,
   placeholder: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
     value: PropTypes.string
   })),
   onChange: PropTypes.func,
-  // isShowSuggessionsAbove: PropTypes.bool, // TODO
+  onSelect: PropTypes.func,
+  // origin: PropTypes.oneOf([ 'top', 'bottom', 'left-top', 'left-bottom', 'right-top', 'right-bottom' ]), // TODO
   maxSuggessionsHeight: PropTypes.number
 };
 FakeInputAutocomplete.defaultProps = {
   defaultValue: '',
-  filterFunction: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
+  filter: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
   placeholder: '',
   items: [],
   onChange: () => {},
   onSelect: () => {},
-  // isShowSuggessionsAbove: false, // TODO
+  // origin: 'bottom', // TODO
   maxSuggessionsHeight: 320
 };
