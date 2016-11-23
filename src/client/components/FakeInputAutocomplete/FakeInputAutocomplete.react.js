@@ -27,7 +27,7 @@ class FakeInputAutocomplete extends Component {
 
   handleItemClick(event, key) {
     let { onChange } = this.props;
-    console.log('key!!!', key);
+    onChange(event, key);
   }
 
   filterItems(items, filterFunction, searchQuery) {
