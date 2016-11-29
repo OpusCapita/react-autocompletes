@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import s from './FakeInputAutocomplete.module.less';
 import fuzzysearch from 'fuzzysearch';
 import VerticalList from '../VerticalList';
@@ -16,7 +15,7 @@ class FakeInputAutocomplete extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.defaultValue !== nextProps.defaultValue) {
+    if (this.props.defaultValue !== nextProps.defaultValue) {
       this.setState({ value: nextProps.defaultValue });
     }
   }
@@ -54,12 +53,12 @@ class FakeInputAutocomplete extends Component {
 
   render() {
     let {
-      defaultValue,
+      defaultValue, // eslint-disable-line no-unused-vars
       filter,
       items,
       maxSuggessionsHeight,
-      onChange,
-      onSelect,
+      onChange, // eslint-disable-line no-unused-vars
+      onSelect, // eslint-disable-line no-unused-vars
       placeholder,
       // origin, // TODO
       ...restProps

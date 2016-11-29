@@ -9,7 +9,11 @@ class VerticalList extends Component {
   }
 
   render() {
-    let { items, onClick, ...restProps } = this.props;
+    let {
+      items,
+      onClick, // eslint-disable-line no-unused-vars
+      ...restProps
+    } = this.props;
     return (
       <div className={s.verticalList} { ...restProps }>
         {items.map(item => (
