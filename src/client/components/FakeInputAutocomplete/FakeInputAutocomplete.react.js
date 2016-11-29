@@ -10,7 +10,7 @@ class FakeInputAutocomplete extends Component {
     super(props);
     this.state = {
       value: props.defaultValue,
-      isFoused: false
+      isFocused: false
     };
   }
 
@@ -21,7 +21,9 @@ class FakeInputAutocomplete extends Component {
   }
 
   focus() {
-    this._input.focus();
+    if(this._input) {
+      this._input.focus();
+    }
   }
 
   handleInputChange(event) {
@@ -43,7 +45,7 @@ class FakeInputAutocomplete extends Component {
   }
 
   handleFocus() {
-    this._input.focus();
+    this.focus();
     this.setState({ isFocused: true });
   }
 
@@ -59,12 +61,24 @@ class FakeInputAutocomplete extends Component {
       maxSuggessionsHeight,
       onChange, // eslint-disable-line no-unused-vars
       onSelect, // eslint-disable-line no-unused-vars
+      inputReactComponent,
       placeholder,
       // origin, // TODO
       ...restProps
     } = this.props;
     let { value, isFocused } = this.state;
     let filteredItems = this.filterItems(items, filter, value);
+    let inputProps = {
+      ref: (ref => (this._input = ref)).bind(this),
+      value,
+      placeholder,
+      onChange: this.handleInputChange.bind(this),
+      ...restProps
+    }
+
+    let input = inputReactComponent ?
+      inputReactComponent(inputProps) :
+      ( <input className={s.input} { ...inputProps } /> );
 
     let showSuggessions = isFocused && filteredItems.length;
     let motionPreset = presets.stiff;
@@ -101,14 +115,7 @@ class FakeInputAutocomplete extends Component {
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.handleBlur.bind(this)}
       >
-        <input
-          ref={ref => (this._input = ref)}
-          value={value}
-          className={s.input}
-          placeholder={placeholder}
-          onChange={this.handleInputChange.bind(this)}
-          { ...restProps }
-        />
+        {input}
         {suggessions}
       </div>
     );
@@ -118,6 +125,7 @@ class FakeInputAutocomplete extends Component {
 FakeInputAutocomplete.propTypes = {
   defaultValue: PropTypes.string,
   filter: PropTypes.func,
+  inputReactComponent: PropTypes.func,
   placeholder: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
