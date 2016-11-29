@@ -1,0 +1,5 @@
+
+Release 1.0.0 Tue Nov 29 2016 11:54:03 GMT+0300 (Belarus Standard Time)
+=======================================================
+
+ - Moved to @opuscapita dependencies. Renamed package. (volkovich <Kirill.Volkovich@jCatalog.com>, Tue Nov 29 11:53:32 2016 +0300)
