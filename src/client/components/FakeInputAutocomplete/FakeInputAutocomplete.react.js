@@ -21,7 +21,7 @@ class FakeInputAutocomplete extends Component {
   }
 
   focus() {
-    if(this._input) {
+    if (this._input) {
       this._input.focus();
     }
   }
@@ -78,7 +78,7 @@ class FakeInputAutocomplete extends Component {
 
     let input = inputReactComponent ?
       inputReactComponent(inputProps) :
-      ( <input className={s.input} { ...inputProps } /> );
+      (<input className={s.input} { ...inputProps } />);
 
     let showSuggessions = isFocused && filteredItems.length;
     let motionPreset = presets.stiff;
