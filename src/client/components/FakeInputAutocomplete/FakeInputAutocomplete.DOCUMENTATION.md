@@ -10,7 +10,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 | filter | func | Filter function `(itemValue, searchQuery) => {}` |
 | placeholder | string | Input placeholder |
 | items | arrayOf(shape({ key: string, value: string }) | Array of items |
-| inputReactComponent | func | Most of all - is a stateless component. Example: `() => <input className="form-group"/>` |
+| inputReactComponent | func | Most of all - is a stateless component. Example: `() => <input className="form-control"/>` |
 | onChange | func | Callback fired on input change `(event, inputNewValue) => {}`|
 | onSelect | func | Callback fired on item selection `(event, itemKey) => {}` |
 | ~origin~ TODO | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
