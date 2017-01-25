@@ -82,7 +82,7 @@ class FakeInputAutocomplete extends Component {
 
     let showSuggessions = isFocused && filteredItems.length;
     let motionPreset = presets.stiff;
-    let suggessions = (
+    let suggessionsContainer = (
       <Motion
         defaultStyle={{ x: 0, y: 0 }}
         style={{
@@ -119,7 +119,7 @@ class FakeInputAutocomplete extends Component {
         onBlur={this.handleBlur.bind(this)}
       >
         {input}
-        {suggessions}
+        {suggessionsContainer}
       </div>
     );
   }
