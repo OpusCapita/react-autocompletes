@@ -10,11 +10,11 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 | filter | func | Filter function `(itemValue, searchQuery) => {}` |
 | placeholder | string | Input placeholder |
 | items | arrayOf(shape({ key: string, value: string }) | Array of items |
-| inputReactComponent | func | Most of all - is a stateless component. Example: `() => <input className="form-group"/>` |
+| inputElement | func | Most of all - is a stateless component. Example: `() => <input className="form-group"/>` |
 | onChange | func | Callback fired on input change `(event, inputNewValue) => {}`|
 | onSelect | func | Callback fired on item selection `(event, itemKey) => {}` |
-| ~origin~ TODO | oneOf([ 'top', 'bottom', 'left', 'right' ]) | |
-  maxSuggessionsHeight: PropTypes.number
+| origin | oneOf([ 'top', 'bottom' ]) | Sometimes you want show suggessions popup to top |
+| maxSuggessionsHeight | number | Max suggessions popup height in px |
   
 ### Methods Reference
 
@@ -27,6 +27,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
   onSelect={(event, key) => console.log('Selected item with key: ' + key)}
   onChange={(event, string) => console.log('onChange', string)}
   placeholder="Start typing"
+  origin="bottom"
   items={[
     { key: 'PIM installation', value: 'PIM installation' },
     { key: 'PROV installation', value: 'PROV installation' },
