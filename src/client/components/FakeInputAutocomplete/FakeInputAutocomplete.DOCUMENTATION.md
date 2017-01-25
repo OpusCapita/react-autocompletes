@@ -28,6 +28,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
   onChange={(event, string) => console.log('onChange', string)}
   placeholder="Start typing"
   origin="bottom"
+  inputElement={(props) => <input { ...props } className="form-control"/>}
   items={[
     { key: 'PIM installation', value: 'PIM installation' },
     { key: 'PROV installation', value: 'PROV installation' },
