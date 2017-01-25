@@ -10,7 +10,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 | filter | func | Filter function `(itemValue, searchQuery) => {}` |
 | placeholder | string | Input placeholder |
 | items | arrayOf(shape({ key: string, value: string }) | Array of items |
-| inputElement | func | Most of all - is a stateless component. Example: `() => <input className="form-group"/>` |
+| inputElement | func | Example: `() => <input className="form-control"/>` |
 | onChange | func | Callback fired on input change `(event, inputNewValue) => {}`|
 | onSelect | func | Callback fired on item selection `(event, itemKey) => {}` |
 | origin | oneOf([ 'top', 'bottom' ]) | Sometimes you want show suggessions popup to top |

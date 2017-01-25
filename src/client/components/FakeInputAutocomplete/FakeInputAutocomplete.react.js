@@ -77,7 +77,7 @@ class FakeInputAutocomplete extends Component {
     };
 
     let input = inputElement ?
-      inputReactComponent(inputProps) :
+      inputElement(inputProps) :
       (<input className={s.input} { ...inputProps } />);
 
     let showSuggessions = isFocused && filteredItems.length;
