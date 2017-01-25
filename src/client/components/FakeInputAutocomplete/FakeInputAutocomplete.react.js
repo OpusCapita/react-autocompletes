@@ -28,15 +28,12 @@ class FakeInputAutocomplete extends Component {
 
   handleInputChange(event) {
     let value = event.target.value;
-    let { onChange } = this.props;
     this.setState({ value });
-    onChange(event, value);
+    this.props.onChange(event, value);
   }
 
   handleItemClick(event, key) {
-    let { onSelect } = this.props;
-    onSelect(event, key);
-
+    this.props.onSelect(event, key);
     this._input.blur();
   }
 
@@ -142,10 +139,10 @@ FakeInputAutocomplete.propTypes = {
 FakeInputAutocomplete.defaultProps = {
   defaultValue: '',
   filter: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
-  placeholder: '',
   items: [],
+  maxSuggessionsHeight: 320,
   onChange: () => {},
   onSelect: () => {},
   origin: 'top',
-  maxSuggessionsHeight: 320
+  placeholder: ''
 };
