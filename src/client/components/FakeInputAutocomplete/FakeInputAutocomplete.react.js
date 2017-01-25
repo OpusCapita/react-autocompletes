@@ -61,7 +61,7 @@ class FakeInputAutocomplete extends Component {
       maxSuggessionsHeight,
       onChange, // eslint-disable-line no-unused-vars
       onSelect, // eslint-disable-line no-unused-vars
-      inputReactComponent,
+      inputElement,
       placeholder,
       // origin, // TODO
       ...restProps
@@ -76,7 +76,7 @@ class FakeInputAutocomplete extends Component {
       ...restProps
     }
 
-    let input = inputReactComponent ?
+    let input = inputElement ?
       inputReactComponent(inputProps) :
       (<input className={s.input} { ...inputProps } />);
 
@@ -125,7 +125,7 @@ class FakeInputAutocomplete extends Component {
 FakeInputAutocomplete.propTypes = {
   defaultValue: PropTypes.string,
   filter: PropTypes.func,
-  inputReactComponent: PropTypes.func,
+  inputElement: PropTypes.func,
   placeholder: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
