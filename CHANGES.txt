@@ -1,4 +1,28 @@
 
+Release 1.0.3 Wed Jan 25 2017 11:59:53 GMT+0300 (+03)
+=======================================================
+
+ - Fixed 'FakeInputAutocomplete' documentation example (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 11:24:46 2017 +0300)
+ - Modified FakeInputAutocomplete. Little refactoring (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 11:24:14 2017 +0300)
+ - FakeInputAutocomplete small refactoring (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 10:43:05 2017 +0300)
+ - Fixed FakeInputAutocomplete propery 'inputElement' (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 10:35:25 2017 +0300)
+ - Merge pull request #1 from kvolkovich-sc/patch-1
+    
+    Update FakeInputAutocomplete.DOCUMENTATION.md (df90298 3f1118c, Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>)
+ - Merge branch 'master' into patch-1 (be4e103 df90298, Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>)
+ - Merge pull request #2 from kvolkovich-sc/master
+    
+    Added 'origin' property. Renamed FakeInputAutocomplete property. (e827aac e5997d0, Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>)
+ - Added 'origin' property to FakeInputAutocomplete
+    
+    It adds possibility to show suggessions popup to top (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 09:54:50 2017 +0300)
+ - Renamed FakeInputAutocomplete property
+    
+    inputReactComponent => inputElement
+    It looks better (Kirill Volkovich <volkovich@scand.com>, Wed Jan 25 09:53:10 2017 +0300)
+ - Update FakeInputAutocomplete.DOCUMENTATION.md (Kirill Volkovich <kvolkovich-sc@users.noreply.github.com>, Tue Jan 24 14:17:10 2017 +0300)
+ - Updating to a version to  1.0.3 (kirillvolkovich <kirill.volkovich@jcatalog.com>, Fri Dec 16 13:15:39 2016 +0300)
+
 Release 1.0.2 Fri Dec 16 2016 13:15:31 GMT+0300 (+03)
 =======================================================
 
