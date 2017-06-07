@@ -16,6 +16,14 @@
     "lib",
     "README.md"
   ],
+  "contributors": [
+    "Kirill Volkovich <kirill.volkovich@jcatalog.com>",
+    "Alexey Sergeev <alexey.sergeev@jcatalog.com>"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": "OpusCapitaBES/react-autocompletes",
   "license": "Apache-2.0",
   "readme": "README.md",
