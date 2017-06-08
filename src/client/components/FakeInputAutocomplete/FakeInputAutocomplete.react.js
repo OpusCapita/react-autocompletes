@@ -143,6 +143,6 @@ FakeInputAutocomplete.defaultProps = {
   maxSuggessionsHeight: 320,
   onChange: () => {},
   onSelect: () => {},
-  origin: 'top',
+  origin: 'bottom',
   placeholder: ''
 };
