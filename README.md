@@ -1,4 +1,4 @@
-# React overlays ![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/react-autocompletes.svg) ![badge-license](https://img.shields.io/github/license/OpusCapita/react-autocompletes.svg)
+# React autocompletes ![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/react-autocompletes.svg) ![badge-license](https://img.shields.io/github/license/OpusCapita/react-autocompletes.svg)
 
 ![demo.gif](https://raw.githubusercontent.com/OpusCapita/react-autocompletes/master/demo.gif)
 
