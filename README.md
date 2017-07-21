@@ -1,4 +1,9 @@
-# React autocompletes ![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/react-autocompletes.svg) ![badge-license](https://img.shields.io/github/license/OpusCapita/react-autocompletes.svg)
+# React autocompletes 
+
+[![CircleCI Status](https://circleci.com/gh/OpusCapita/react-autocompletes/tree/master.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/OpusCapita/react-autocompletes)
+[![NPM Downloads](https://img.shields.io/npm/dm/@opuscapita/react-autocompletes.svg)](https://npmjs.org/package/@opuscapita/react-autocompletes)
+![badge-npm-version](https://img.shields.io/npm/v/@opuscapita/react-autocompletes.svg) 
+![badge-license](https://img.shields.io/github/license/OpusCapita/react-autocompletes.svg)
 
 ![demo.gif](https://raw.githubusercontent.com/OpusCapita/react-autocompletes/master/demo.gif)
 
