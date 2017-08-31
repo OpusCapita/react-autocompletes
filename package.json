@@ -24,7 +24,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "OpusCapitaBES/react-autocompletes",
+  "repository": "OpusCapita/react-autocompletes",
   "license": "Apache-2.0",
   "readme": "README.md",
   "peerDependencies": {
