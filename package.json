@@ -1,6 +1,6 @@
 {
   "name": "@opuscapita/react-autocompletes",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Autocomplete components",
   "scripts": {
     "npm-build": "rimraf lib && webpack --config webpack.production.config.js",
