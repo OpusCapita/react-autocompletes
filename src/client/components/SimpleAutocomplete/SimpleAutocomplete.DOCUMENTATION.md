@@ -1,6 +1,6 @@
 ### Synopsis
 
-FakeInputAutocomplete is a simple clearly looking autocomplete.
+SimpleAutocomplete is a simple clearly looking autocomplete.
 
 ### Props Reference
 
@@ -23,7 +23,7 @@ FakeInputAutocomplete is a simple clearly looking autocomplete.
 ### Code Example
 
 ```
-<FakeInputAutocomplete 
+<SimpleAutocomplete 
   onSelect={(event, key) => console.log('Selected item with key: ' + key)}
   onChange={(event, string) => console.log('onChange', string)}
   placeholder="Start typing"
@@ -58,7 +58,7 @@ Kirill Volkovich
 
 ### Component Name
 
-FakeInputAutocomplete
+SimpleAutocomplete
 
 ### License
 

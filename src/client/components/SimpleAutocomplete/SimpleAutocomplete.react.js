@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import s from './FakeInputAutocomplete.module.less';
+import s from './SimpleAutocomplete.module.less';
 import fuzzysearch from 'fuzzysearch';
 import VerticalList from '../VerticalList';
 import { Motion, spring, presets } from 'react-motion';
 
 export default
-class FakeInputAutocomplete extends Component {
+class SimpleAutocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,7 +111,7 @@ class FakeInputAutocomplete extends Component {
       <div
         ref={ref => (this._autocomplete = ref)}
         tabIndex={-1}
-        className={s.fakeInputAutocomplete}
+        className={s.simpleAutocomplete}
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.handleBlur.bind(this)}
       >
@@ -122,7 +122,7 @@ class FakeInputAutocomplete extends Component {
   }
 }
 
-FakeInputAutocomplete.propTypes = {
+SimpleAutocomplete.propTypes = {
   defaultValue: PropTypes.string,
   filter: PropTypes.func,
   inputElement: PropTypes.func,
@@ -136,7 +136,7 @@ FakeInputAutocomplete.propTypes = {
   origin: PropTypes.oneOf([ 'top', 'bottom' ]),
   maxSuggessionsHeight: PropTypes.number
 };
-FakeInputAutocomplete.defaultProps = {
+SimpleAutocomplete.defaultProps = {
   defaultValue: '',
   filter: (value1, value2) => fuzzysearch(value2.toLowerCase(), value1.toLowerCase()),
   items: [],

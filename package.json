@@ -1,9 +1,9 @@
 {
   "name": "@opuscapita/react-autocompletes",
-  "version": "1.0.9",
-  "description": "React ",
+  "version": "2.0.0",
+  "description": "Autocomplete components",
   "scripts": {
-    "npm-build": "rimraf lib && babel --copy-files --no-babelrc --presets es2015,stage-0,react --plugins transform-decorators-legacy --ignore __tests__,*.spec.js,demo src/client/components --out-dir lib",
+    "npm-build": "rimraf lib && webpack --config webpack.production.config.js",
     "link-mode": "webpack --watch --config ./webpack.link.config.js",
     "lint": "eslint src/client",
     "start": "node www/index",
@@ -16,20 +16,16 @@
     "lib",
     "README.md"
   ],
-  "contributors": [
-    "Kirill Volkovich <kirill.volkovich@jcatalog.com>",
-    "Alexey Sergeev <alexey.sergeev@jcatalog.com>"
-  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "OpusCapitaBES/react-autocompletes",
+  "repository": "OpusCapita/react-autocompletes",
   "license": "Apache-2.0",
   "readme": "README.md",
   "peerDependencies": {
-    "react": ">= 0.14.0",
-    "react-dom": ">= 0.14.0"
+    "react": ">= 0.14.0 || || >= 15.0.0",
+    "react-dom": ">= 0.14.0 || || >= 15.0.0"
   },
   "devDependencies": {
     "@opuscapita/npm-scripts": "1.0.8",
