@@ -133,7 +133,7 @@ SimpleAutocomplete.propTypes = {
   })),
   onChange: PropTypes.func,
   onSelect: PropTypes.func,
-  origin: PropTypes.oneOf([ 'top', 'bottom' ]),
+  origin: PropTypes.oneOf(['top', 'bottom']),
   maxSuggessionsHeight: PropTypes.number
 };
 SimpleAutocomplete.defaultProps = {
