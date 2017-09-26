@@ -1,3 +1,6 @@
+## [v2.0.2](https://github.com/OpusCapita/react-ui-autocompletes/compare/v2.0.1...v2.0.2) (Tue, 26 Sep 2017 13:42:44 GMT)
+ - Set @opuscapita/npm-scripts version to 2.0.1-beta.1 (Kirill Volkovich <kirill.volkovich@jcatalog.com>, cdb2faf)
+
 ## [v2.0.1](https://github.com/OpusCapita/react-ui-autocompletes/compare/v2.0.0...v2.0.1) (Tue, 26 Sep 2017 12:24:55 GMT)
  - Remove CHANGES.txt (Kirill Volkovich <kirill.volkovich@jcatalog.com>, 928a574)
  - Update @opuscapita/npm-scripts (Kirill Volkovich <kirill.volkovich@jcatalog.com>, f810ef8)
