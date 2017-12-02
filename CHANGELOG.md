@@ -1,3 +1,7 @@
+## [v2.0.3](https://github.com/OpusCapita/react-autocompletes/compare/v2.0.2...v2.0.3) (Sat, 02 Dec 2017 10:41:00 GMT)
+ - Remove ugify plugin from production build (Kirill Volkovich <kirill.volkovich@opuscapita.com>, 3f0240e)
+ - React 16.x.x support (Kirill Volkovich <kirill.volkovich@opuscapita.com>, 3feb183)
+
 ## [v2.0.2](https://github.com/OpusCapita/react-ui-autocompletes/compare/v2.0.1...v2.0.2) (Tue, 26 Sep 2017 13:42:44 GMT)
  - Set @opuscapita/npm-scripts version to 2.0.1-beta.1 (Kirill Volkovich <kirill.volkovich@jcatalog.com>, cdb2faf)
 
