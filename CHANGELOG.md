@@ -1,3 +1,11 @@
+## [v3.0.0](https://github.com/OpusCapita/react-ui-autocompletes/compare/v2.0.3...v3.0.0) (Wed, 13 Dec 2017 09:04:41 GMT)
+ - Merge pull request #4 from OpusCapita/migrate-react-16/#3
+    
+    Migrate react 16/#3 (854c9c0 0bc77f8, 5fb6d13)
+ - Change version to 3.0.0 (baliunov <baliunov@scand.com>, 0bc77f8)
+ - Change React version to 15.6.2 (baliunov <baliunov@scand.com>, ef46ede)
+ - Update "shoroom" version (Kirill Volkovich <kirill.volkovich@opuscapita.com>, 854c9c0)
+
 ## [v2.0.3](https://github.com/OpusCapita/react-autocompletes/compare/v2.0.2...v2.0.3) (Sat, 02 Dec 2017 10:41:00 GMT)
  - Remove ugify plugin from production build (Kirill Volkovich <kirill.volkovich@opuscapita.com>, 3f0240e)
  - React 16.x.x support (Kirill Volkovich <kirill.volkovich@opuscapita.com>, 3feb183)
