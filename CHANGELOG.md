@@ -1,3 +1,12 @@
+
+Release 3.0.1 Thu May 31 2018 14:44:09 GMT+0300 (MSK)
+=======================================================
+
+- Removed dependencies from production bundle ([#6](https://github.com/OpusCapita/react-autocompletes/issues/6)) (GitHub 31243790+estambakio-sc@users.noreply.github.com, 2018-05-31 14:41:26 +0300)
+- Adding an issue template file [ci skip] (Egor Stambakio egor.stambakio@opuscapita.com, 2018-05-02 12:21:22 +0300)
+- Updated build config. (Dmitry Shienok dshienok@scand.com, 2018-02-26 16:51:02 +0300)
+- Update package.json (GitHub kvolkovich-sc@users.noreply.github.com, 2018-01-31 13:07:35 +0300)
+- Updating to a version to  3.0.1 (Kirill Volkovich kirill.volkovich@jcatalog.com, 2017-12-13 12:04:54 +0300)
 ## [v3.0.0](https://github.com/OpusCapita/react-ui-autocompletes/compare/v2.0.3...v3.0.0) (Wed, 13 Dec 2017 09:04:41 GMT)
  - Merge pull request #4 from OpusCapita/migrate-react-16/#3
     
